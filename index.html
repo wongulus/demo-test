@@ -95,6 +95,7 @@
       gtag('js', new Date());
     
       let reveal_gtag_map = {
+        'send_page_view': false,
         'custom_map': {
           'dimension1': 'type',
           'dimension2': 'companyName',
@@ -115,18 +116,19 @@
       
       let company = reveal.company;
       gtag('event', 'Clearbit', {
-        "type":reveal.type,
-        "companyName":company.name,
-        "companyDomain":company.domain,
-        "companyIndustry":company.category.industry,
-        "companySubIndustry":company.category.subIndustry,
-        "companyEmployeesRange":company.metrics.employeesRange,
-        "companyEstimatedAnnualRevenue":company.metrics.estimatedAnnualRevenue,
-        "companyAlexaRank":company.metrics.alexaGlobalRank,
-        "companyCity":company.geo.city,
-        "companyState":company.geo.state,
-        "companyCountry":company.geo.country,
-        "companySicCode":company.category.sicCode
+        'non_interaction': true,
+        'type':reveal.type,
+        'companyName':company.name,
+        'companyDomain':company.domain,
+        'companyIndustry':company.category.industry,
+        'companySubIndustry':company.category.subIndustry,
+        'companyEmployeesRange':company.metrics.employeesRange,
+        'companyEstimatedAnnualRevenue':company.metrics.estimatedAnnualRevenue,
+        'companyAlexaRank':company.metrics.alexaGlobalRank,
+        'companyCity':company.geo.city,
+        'companyState':company.geo.state,
+        'companyCountry':company.geo.country,
+        'companySicCode':company.category.sicCode
       });
     </script>
     <!--End Reveal to GA via gtag.js-->  
