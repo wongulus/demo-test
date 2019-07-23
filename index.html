@@ -88,7 +88,7 @@
     <!-- End Reveal into GA via analytics.js-->
 
     <!-- Reveal into GA via gtag.js-->
-    <script src="https://reveal.clearbit.com/v1/companies/reveal?authorization=pk_5fdce9b9374f2f8a4f8c9f4a1546fa35"></script>
+    <script src="https://reveal.clearbit.com/v1/companies/reveal?authorization=pk_5fdce9b9374f2f8a4f8c9f4a1546fa35&variable=reveal"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -109,7 +109,7 @@
           'dimension10': 'companyState',
           'dimension11': 'companyCountry',
           'dimension12': 'companySicCode'
-      }
+        }
       }
       //This snippet will fire with whichever tracking IDs want the mapping passed to
       gtag('config', 'UA-140690463-2', reveal_gtag_map);
