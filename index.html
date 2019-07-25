@@ -114,22 +114,45 @@
       //This snippet will fire with whichever tracking IDs want the mapping passed to
       gtag('config', 'UA-140690463-2', reveal_gtag_map);
       
-      let company = reveal.company;
-      gtag('event', 'Clearbit', {
-        'non_interaction': true,
-        'type':reveal.type,
-        'companyName':company.name,
-        'companyDomain':company.domain,
-        'companyIndustry':company.category.industry,
-        'companySubIndustry':company.category.subIndustry,
-        'companyEmployeesRange':company.metrics.employeesRange,
-        'companyEstimatedAnnualRevenue':company.metrics.estimatedAnnualRevenue,
-        'companyAlexaRank':company.metrics.alexaGlobalRank,
-        'companyCity':company.geo.city,
-        'companyState':company.geo.state,
-        'companyCountry':company.geo.country,
-        'companySicCode':company.category.sicCode
-      });
+      let reveal_data_map = {};
+
+      if(reveal === null) {
+        reveal_data_map = {
+          'non_interaction': true,
+          'type': "(Non-Company)",
+          'companyName':"(Non-Company)",
+          'companyDomain':"(Non-Company)",
+          'companyIndustry':"(Non-Company)",
+          'companySubIndustry':"(Non-Company)",
+          'companyEmployeesRange':"(Non-Company)",
+          'companyEstimatedAnnualRevenue':"(Non-Company)",
+          'companyAlexaRank':"(Non-Company)",
+          'companyCity':"(Non-Company)",
+          'companyState':"(Non-Company)",
+          'companyCountry':"(Non-Company)",
+          'companySicCode':"(Non-Company)"
+        };
+      }
+      else {
+        let company = reveal.company;
+        reveal_data_map = {
+          'non_interaction': true,
+          'type':reveal.type,
+          'companyName':company.name,
+          'companyDomain':company.domain,
+          'companyIndustry':company.category.industry,
+          'companySubIndustry':company.category.subIndustry,
+          'companyEmployeesRange':company.metrics.employeesRange,
+          'companyEstimatedAnnualRevenue':company.metrics.estimatedAnnualRevenue,
+          'companyAlexaRank':company.metrics.alexaGlobalRank,
+          'companyCity':company.geo.city,
+          'companyState':company.geo.state,
+          'companyCountry':company.geo.country,
+          'companySicCode':company.category.sicCode
+        };
+      }
+
+      gtag('event', 'Clearbit', reveal_data_map);
     </script>
     <!--End Reveal to GA via gtag.js-->  
 
