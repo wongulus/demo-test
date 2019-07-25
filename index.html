@@ -115,40 +115,41 @@
       gtag('config', 'UA-140690463-2', reveal_gtag_map);
       
       let reveal_data_map = {};
+      let nonCompany = "(Non-Company)";
 
       if(reveal === null) {
         reveal_data_map = {
           'non_interaction': true,
-          'type': "(Non-Company)",
-          'companyName':"(Non-Company)",
-          'companyDomain':"(Non-Company)",
-          'companyIndustry':"(Non-Company)",
-          'companySubIndustry':"(Non-Company)",
-          'companyEmployeesRange':"(Non-Company)",
-          'companyEstimatedAnnualRevenue':"(Non-Company)",
-          'companyAlexaRank':"(Non-Company)",
-          'companyCity':"(Non-Company)",
-          'companyState':"(Non-Company)",
-          'companyCountry':"(Non-Company)",
-          'companySicCode':"(Non-Company)"
+          'type': nonCompany,
+          'companyName':nonCompany,
+          'companyDomain':nonCompany,
+          'companyIndustry':nonCompany,
+          'companySubIndustry':nonCompany,
+          'companyEmployeesRange':nonCompany,
+          'companyEstimatedAnnualRevenue':nonCompany,
+          'companyAlexaRank':nonCompany,
+          'companyCity':nonCompany,
+          'companyState':nonCompany,
+          'companyCountry':nonCompany,
+          'companySicCode':nonCompany
         };
       }
       else {
-        let company = reveal.company;
+        let company = reveal.company ? true : false;
         reveal_data_map = {
           'non_interaction': true,
           'type':reveal.type,
-          'companyName':company.name,
-          'companyDomain':company.domain,
-          'companyIndustry':company.category.industry,
-          'companySubIndustry':company.category.subIndustry,
-          'companyEmployeesRange':company.metrics.employeesRange,
-          'companyEstimatedAnnualRevenue':company.metrics.estimatedAnnualRevenue,
-          'companyAlexaRank':company.metrics.alexaGlobalRank,
-          'companyCity':company.geo.city,
-          'companyState':company.geo.state,
-          'companyCountry':company.geo.country,
-          'companySicCode':company.category.sicCode
+          'companyName':company ? reveal.company.name : nonCompany,
+          'companyDomain':company ? reveal.company.domain: nonCompany,
+          'companyIndustry':company ? reveal.company.category.industry: nonCompany,
+          'companySubIndustry':company ? reveal.company.category.subIndustry: nonCompany,
+          'companyEmployeesRange':company ? reveal.company.metrics.employeesRange: nonCompany,
+          'companyEstimatedAnnualRevenue':company ? reveal.company.metrics.estimatedAnnualRevenue: nonCompany,
+          'companyAlexaRank':company ? reveal.company.metrics.alexaGlobalRank: nonCompany,
+          'companyCity':company ? reveal.company.geo.city: nonCompany,
+          'companyState':company ? reveal.company.geo.state: nonCompany,
+          'companyCountry':company ? reveal.company.geo.country: nonCompany,
+          'companySicCode':company ? reveal.company.category.sicCode: nonCompany
         };
       }
 
