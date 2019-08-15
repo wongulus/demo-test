@@ -2,25 +2,26 @@
 <html lang="en-US">
   <head>
     <!-- Google Tag Manager -->
-    <!-- <script>
+    <script>
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-KBFF27D');
-    </script> -->
+    </script>
     <!-- End Google Tag Manager -->
 
     <!-- standalone gtag script-->
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140690463-2"></script>
+    <!-- Matching reveal-gtag -> ga code block in the body -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140690463-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'UA-140690463-2');
-    </script>
+    </script> -->
     <!-- End standalone gtag-->
 
     <meta charset="utf-8">
@@ -37,8 +38,8 @@
 
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBFF27D"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBFF27D"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="container">
@@ -88,7 +89,7 @@
     <!-- End Reveal into GA via analytics.js-->
 
     <!-- Reveal into GA via gtag.js-->
-    <script src="https://reveal.clearbit.com/v1/companies/reveal?authorization=pk_5fdce9b9374f2f8a4f8c9f4a1546fa35&variable=reveal"></script>
+    <!-- <script src="https://reveal.clearbit.com/v1/companies/reveal?authorization=pk_5fdce9b9374f2f8a4f8c9f4a1546fa35&variable=reveal"></script>
     <script>
       let reveal_gtag_map = {
         'send_page_view': false,
@@ -110,7 +111,7 @@
       }
       
       // This line configures the tracking ID with the mapping
-      gtag('config', 'UA-Property-Id', reveal_gtag_map);
+      gtag('config', 'UA-140690463-2', reveal_gtag_map);
       
       let reveal_data_map = {};
       let nonCompany = "(Non-Company)";
@@ -155,7 +156,7 @@
       }
       
       gtag('event', 'Clearbit', reveal_data_map);
-    </script>
+    </script> -->
     <!--End Reveal to GA via gtag.js-->  
 
     <!-- Reveal Personalization -->
