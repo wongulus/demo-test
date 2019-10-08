@@ -1,20 +1,74 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
+
+<head>
     <meta charset="utf-8">
 
     <title>Datalayer & Optimize</title>
     <link rel="icon" href="https://theme.zdassets.com/theme_assets/978257/920c5dc523ca1bb76148e7a4908249c54dddf234.png">
-  </head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5ZJ4QL8');
+    </script>
+    <!-- End Google Tag Manager -->
 
-  <body>
+    <!-- Styling for optimize experiment -->
+    <style>
+        .container {
+            width: 100%;
+            text-align: center;
+        }
+
+        .container img {
+            height: 250px;
+        }
+
+        .container button {
+            margin: 15px 0;
+            text-transform: uppercase;
+            font-size: 1.10em;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZJ4QL8" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="navigation">
         <a href="index.html">Home</a>
         <a href="xforms.html">X-Forms</a>
         <a href="segment.html">Segment</a>
         <a href="datalayer_optimize.html">Datalayer & Optimize</a>
     </div>
-    
 
-  </body>
+    <!-- Block for Optimize Experiment -->
+    <div class="container">
+        <img src="https://cl.ly/719bff4b76ec/default_hero.jpg">
+    </div>
+    <div class="container">
+        <button>sign up</button>
+    </div>
+    <!-- End block for Optimize Experiment -->
+
+    <h2>Description</h2>
+    <p>This page is designed to be an example setup for using Reveal with GA via the datalayer and Google Optimize using 
+        Datalayer variables. GTM ID should be GTM-5ZJ4QL8, GA Property ID should be UA-140690463-2, and Optmize Container should be 
+        GTM-WDH868D.
+    </p>
+
+</body>
+
 </html>
