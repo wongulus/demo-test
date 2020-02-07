@@ -43,6 +43,8 @@
       .container img { height: 250px; }
       .container button { margin: 15px 0; text-transform: uppercase; font-size: 1.10em; padding: 5px; }
     </style>
+    <!-- testing null change  -->
+    <script></script>
   </head>
 
   <body>
@@ -90,36 +92,53 @@
     <!-- <script type="text/javascript" src="https://clearbitjs.com/v1/x/forms.js"></script>
     <div class="clearbit-form" data-form-id="632929e6-4532-4d82-b75a-5637ba11adcf" data-theme="default" ></div> -->
 
-    <!-- Reveal into GA via analytics.js-->
-    <!-- <script>
-      ga_trackers=[];
-      ga(function(){
-        ga.getAll().forEach(function(x,i){
-          ga_trackers.push(x.get('name'))
-        });
-        ga_trackers.forEach(function(gaName){
-          ga(gaName + '.require', 'Clearbit', {
-            "mapping": {
-              "type":"dimension3",
-              "companyName":"dimension4",
-              "companyDomain":"dimension5",
-              "companyIndustry":"dimension6",
-              "companySubIndustry":"dimension7",
-              "companyEmployeesRange":"dimension8",
-              "companyEstimatedAnnualRevenue":"dimension9",
-              "companyAlexaRank":"dimension10",
-              "companyCity":"dimension11",
-              "companyState":"dimension12",
-              "companyCountry":"dimension13",
-              "companySicCode":"dimension14",
-              "companyTech":"dimension15"
+    <!-- Reveal into GA via analytics.js for property UA-140690463-2-->
+    <script>
+      var gaConfig = function(){
+        var revealTrackingIds = ["UA-140690463-2"];
+        ga_trackers=[];
+        ga(function(){
+          ga.getAll().forEach(function(x,i){
+            if(revealTrackingIds.indexOf(x.get('trackingId')) !== -1) {
+              ga_trackers.push(x.get('name'))
             }
           });
-        })
-      });
+          ga_trackers.forEach(function(gaName){
+            ga(gaName + '.require', 'Clearbit', {
+              "mapping": {
+                "type":"dimension3",
+                "companyName":"dimension4",
+                "companyDomain":"dimension5",
+                "companyIndustry":"dimension6",
+                "companySubIndustry":"dimension7",
+                "companyEmployeesRange":"dimension8",
+                "companyEstimatedAnnualRevenue":"dimension9",
+                "companyAlexaRank":"dimension10",
+                "companyCity":"dimension11",
+                "companyState":"dimension12",
+                "companyCountry":"dimension13",
+                "companySicCode":"dimension14",
+                "companyTech":"dimension15"
+              }
+            });
+          })
+        });
+      };
+      let gaPollStart = Date.now()
+      let gaPoll = setInterval(function() {
+        if (typeof window.ga !== 'undefined') {
+          clearInterval(gaPoll);
+          gaConfig();
+          var s = document.createElement("script");
+          s.type = "text/javascript";
+          s.src = "https://ga.clearbit.com/v1/ga.js?authorization=pk_5fdce9b9374f2f8a4f8c9f4a1546fa35";
+          document.body.appendChild(s);
+        }
+        else if(Date.now() - gaPollStart > 2000) {
+          clearInterval(gaPoll);
+        }
+      }, 100);
     </script>
-    <script async src="https://ga.clearbit.com/v1/ga.js?authorization=pk_5fdce9b9374f2f8a4f8c9f4a1546fa35">
-    </script> -->
     <!-- End Reveal into GA via analytics.js-->
 
     <!-- Reveal into GA via gtag.js-->
