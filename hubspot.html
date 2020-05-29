@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <!-- Google Tag Manager - Main -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KBFF27D');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+
+    <title>Justin's Testing Page for Embedded HubSpot Forms</title>
+    <link rel="icon" href="https://theme.zdassets.com/theme_assets/978257/920c5dc523ca1bb76148e7a4908249c54dddf234.png">
+
+    <style>
+      .container { width: 100%; text-align: center; }
+      .container img { height: 250px; }
+      .container button { margin: 15px 0; text-transform: uppercase; font-size: 1.10em; padding: 5px; }
+    </style>
+
+    <!-- HubSpot Forms Code -->
+    <script>
+      !function(o){
+        var d=document,
+        r=d.getElementsByTagName("script")[0];
+        if("object"==typeof o.ClearbitForHubspot)return console.log("Clearbit For HubSpot included more than once"),!1;
+        o.ClearbitForHubspot={},
+        o.ClearbitForHubspot.forms=[],
+        o.ClearbitForHubspot.addForm=function(r){
+          var t=r[0];
+          "function"==typeof o.ClearbitForHubspot.onFormReady?o.ClearbitForHubspot.onFormReady(t):o.ClearbitForHubspot.forms.push(t)
+        };
+        var t=d.createElement("script");
+        t.async=!0,t.src="https://hubspot.clearbit.com/v1/forms/pk_6bb1103d8825e32f7139e4988ce0833e/forms.js",
+        r.parentNode.insertBefore(t,r);
+        /* o.addEventListener('message', function(e) {
+          if(e.data.type === 'hsFormCallback' && e.data.eventName === 'onFormReady') {
+             o.ClearbitForHubspot.addForm(d.querySelectorAll('[data-form-id="'+e.data.id+'"]'));
+          }
+        });*/
+      }(window);
+    </script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) - Main -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBFF27D"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Google Tag Manager (noscript) - Partner Demo -->
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ9KLT4"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="navigation">
+      <a href="index.html">Home</a>
+      <a href="xforms.html">X-Forms</a>
+      <a href="segment.html">Segment</a>
+      <a href="datalayer_optimize.html">Datalayer & Optimize</a>
+      <a href="intercom.html">Intercom</a>
+      <a href="hubspot.html">HubSpot Embedded Forms</a>
+    </div>
+    
+    <!--[if lte IE 8]>
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+    <![endif]-->
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+      portalId: "6110587",
+      formId: "d4de474e-49f2-4e5a-aad9-148078a2c1e6"
+    });
+    </script>
+
+    <p>To see enrichment in action on a HubSpot CMS page, click <a href="http://clearbit-dev-6110587-6110587.hs-sites.com/test-my-hubspot-form">here</a!></p>
+  </body>
+</html>
