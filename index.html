@@ -90,13 +90,12 @@
     <!-- End form for testing autofill functionality -->
 
     <script async src="https://marketo.clearbit.com/assets/v1/marketo/forms.js" data-clearbit-publishable-key="pk_6bb1103d8825e32f7139e4988ce0833e"></script>
-    <script>
+    <!-- <script>
       MktoForms2.whenReady(function(form) {
               
         form.submittable(false);
-      
         var clearbitPolling = false;
-      
+
         form.onValidate(function(valid) {
           var values = form.getValues();
           if(clearbitPolling || !valid) {
@@ -106,8 +105,8 @@
               return form.submittable(true);
             }
             else {
+              form.submittable(false);
               clearbitPolling = true;
-              
               var start = Date.now();
               var poll = setInterval(function() {
                 if(form.getValues().clearbitFormStatus && form.getValues().clearbitFormStatus !== "") {
@@ -125,7 +124,7 @@
           }
         })
       })
-    </script> 
+    </script>  -->
     
     <!-- <script type="text/javascript" src="https://clearbitjs.com/v1/x/forms.js"></script>
     <div class="clearbit-form" data-form-id="632929e6-4532-4d82-b75a-5637ba11adcf" data-theme="default" ></div> -->
