@@ -90,45 +90,45 @@
     <script>MktoForms2.loadForm("//app-ab32.marketo.com", "797-LZE-483", 1183);</script> -->
     <!-- End form for testing autofill functionality -->
 
-    <!-- Marketo Forms Enrichment -->
-    <script type="text/javascript">var pollForDefinition=function(scope,varname,callback){if(typeof scope[varname]!=="undefined"){return callback()}var interval=setInterval(function(){if(typeof scope[varname]!=="undefined"){clearInterval(interval);callback()}},250)};var script=document.createElement("script");script.src="https://marketo.clearbit.com/assets/v1/marketo/forms.js";script.async=true;script["data-clearbit-publishable-key"]="pk_6bb1103d8825e32f7139e4988ce0833e";script.onerror=function(e){console.log("Clearbit Form JS unable to load");pollForDefinition(window,"MktoForms2",function(){MktoForms2.whenReady(function(form){form.setValues({clearbitFormStatus:"Clearbit Form JS unable to load"})})})};document.body.append(script);</script>
-    <!-- Old marketo forms race condition javascript -->
-    <!-- <script>
-      MktoForms2.whenReady(function(form) {
-              
-        form.submittable(false);
-        var clearbitPolling = false;
-
-        form.onValidate(function(valid) {
-          var values = form.getValues();
-          if(clearbitPolling || !valid) {
-            return form.submittable(false);
-          } else {
-            if(valid && values.clearbitFormStatus && values.clearbitFormStatus !== "") {
-              return form.submittable(true);
-            }
-            else {
-              form.submittable(false);
-              clearbitPolling = true;
-              var start = Date.now();
-              var poll = setInterval(function() {
-                if(form.getValues().clearbitFormStatus && form.getValues().clearbitFormStatus !== "") {
-                  clearInterval(poll);
-                  clearbitPolling = false;
-                } else {
-                  if (Date.now() - start > 2000) {
-                    form.setValues({
-                      clearbitFormStatus: "not Enriched"
-                    })
-                  }
-                }
-              },100)
-            }
+    <!-- Munchkin tracking code -->
+    <script type="text/javascript">
+      (function() {
+        var didInit = false;
+        function initMunchkin() {
+          if(didInit === false) {
+            didInit = true;
+            Munchkin.init('797-LZE-483');
           }
-        })
-      })
-    </script>  -->
+        }
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = '//munchkin.marketo.net/munchkin.js';
+        s.onreadystatechange = function() {
+          if (this.readyState == 'complete' || this.readyState == 'loaded') {
+            initMunchkin();
+          }
+        };
+        s.onload = initMunchkin;
+        document.getElementsByTagName('head')[0].appendChild(s);
+      })();
+    </script>
+    <!-- End Munchkin Tracking Code -->
+
+    <!-- Marketo Forms Enrichment -->
+    <!-- <script type="text/javascript">var pollForDefinition=function(scope,varname,callback){if(typeof scope[varname]!=="undefined"){return callback()}var interval=setInterval(function(){if(typeof scope[varname]!=="undefined"){clearInterval(interval);callback()}},250)};var script=document.createElement("script");script.src="https://marketo.clearbit.com/assets/v1/marketo/forms.js";script.async=true;script["data-clearbit-publishable-key"]="pk_6bb1103d8825e32f7139e4988ce0833e";script.onerror=function(e){console.log("Clearbit Form JS unable to load");pollForDefinition(window,"MktoForms2",function(){MktoForms2.whenReady(function(form){form.setValues({clearbitFormStatus:"Clearbit Form JS unable to load"})})})};document.body.append(script);</script> -->
     
+    <!-- Marketo Forms dev env -->
+    <script type="text/javascript">var pollForDefinition=function(scope,varname,callback){if(typeof scope[varname]!=="undefined"){return callback();} var interval=setInterval(function(){if(typeof scope[varname]!=="undefined"){clearInterval(interval);callback();}},250);};var script=document.createElement("script");script.src="https://marketo.dev.clearbit.io/assets/v1/marketo/forms.js";script.async=true;script.setAttribute("data-clearbit-publishable-key","pk_cd9c3c3a5400f95133ab83d0c36edd80");script.onerror=function(e){console.log("Clearbit Form JS unable to load");pollForDefinition(window,"MktoForms2",function(){MktoForms2.whenReady(function(form){form.setValues({clearbitFormStatus:"Clearbit Form JS unable to load"});});});};document.body.append(script);</script>
+    
+    <!-- pre-fill email from query param -->
+    <script>
+      pollForDefinition(window,"MktoForms2",function(form) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const emailParam = urlParams.get('my_email');
+        form.setValues({"Email":emailParam});
+      })
+    </script>
     <!-- <script type="text/javascript" src="https://clearbitjs.com/v1/x/forms.js"></script>
     <div class="clearbit-form" data-form-id="632929e6-4532-4d82-b75a-5637ba11adcf" data-theme="default" ></div> -->
 
