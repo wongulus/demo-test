@@ -63,7 +63,7 @@
           if (e.data.type === 'hsFormCallback' && e.data.eventName === 'onFormReady') {
             console.log("event heard!");
             console.log(e);
-            if (d.querySelectorAll('form#hsForm_'+e.data.id)) {
+            if (d.querySelectorAll('form#hsForm_'+e.data.id).length > 0) {
               o.ClearbitForHubspot.addForm(d.querySelectorAll('form#hsForm_'+e.data.id));
             }
             else if (d.querySelectorAll('iframe.hs-form-iframe').length > 0) {
