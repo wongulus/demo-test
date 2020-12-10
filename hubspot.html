@@ -61,20 +61,14 @@
         r.parentNode.insertBefore(t,r);
         o.addEventListener('message', function(e) {
           if (e.data.type === 'hsFormCallback' && e.data.eventName === 'onFormReady') {
-            console.log("event heard!");
-            console.log(e);
             if (d.querySelectorAll('form#hsForm_'+e.data.id).length > 0) {
               o.ClearbitForHubspot.addForm(d.querySelectorAll('form#hsForm_'+e.data.id));
             }
             else if (d.querySelectorAll('iframe.hs-form-iframe').length > 0) {
-              var hsFormFrames = d.querySelectorAll('iframe.hs-form-iframe');
-              hsFormFrames.forEach(function(frame) {
-                if (frame.contentWindow.document.querySelectorAll('form#hsForm_'+e.data.id).length > 0) {
-                  var form = frame.contentWindow.document.querySelectorAll('form#hsForm_'+e.data.id);
-                  console.log(form);
-                  setTimeout( function() {
-                    o.ClearbitForHubspot.addForm(form);
-                  }, 0)
+              var fs = d.querySelectorAll('iframe.hs-form-iframe');
+              fs.forEach(function(f) {
+                if (f.contentWindow.document.querySelectorAll('form#hsForm_'+e.data.id).length > 0) {
+                  o.ClearbitForHubspot.addForm(f.contentWindow.document.querySelectorAll('form#hsForm_'+e.data.id));
                 }
               })
             }
@@ -111,7 +105,6 @@
     <script>
       hbspt.forms.create({
         // onFormReady: function ($form) { window.ClearbitForHubspot.addForm($form); },
-        onFormReady: function ($form) { console.log($form); },
         portalId: "6110587",
         formId: "d4de474e-49f2-4e5a-aad9-148078a2c1e6"
       });
