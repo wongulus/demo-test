@@ -70,7 +70,9 @@
               var hsFormFrames = d.querySelectorAll('iframe.hs-form-iframe');
               hsFormFrames.forEach(function(frame) {
                 if (frame.contentWindow.document.querySelectorAll('form#hsForm_'+e.data.id).length > 0) {
-                  o.ClearbitForHubspot.addForm(frame.contentWindow.document.querySelectorAll('form#hsForm_'+e.data.id));
+                  setTimeout( function() {
+                    o.ClearbitForHubspot.addForm(frame.contentWindow.document.querySelectorAll('form#hsForm_'+e.data.id));
+                  }, 0)
                 }
               })
             }
