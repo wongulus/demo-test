@@ -60,8 +60,18 @@
         t.async=!0,t.src="https://hubspot.clearbit.com/v1/forms/pk_6bb1103d8825e32f7139e4988ce0833e/forms.js",
         r.parentNode.insertBefore(t,r);
         o.addEventListener('message', function(e) {
-          if(e.data.type === 'hsFormCallback' && e.data.eventName === 'onFormReady') {
-             o.ClearbitForHubspot.addForm(d.querySelectorAll('[data-form-id="'+e.data.id+'"]'));
+          if (e.data.type === 'hsFormCallback' && e.data.eventName === 'onFormReady') {
+            if (d.querySelectorAll('form#hsForm_'+e.data.id)) {
+              o.ClearbitForHubspot.addForm(d.querySelectorAll('form#hsForm_'+e.data.id));
+            }
+            else if (d.querySelectorAll('iframe.hs-form-iframe').length > 0) {
+              var hsFormFrames = d.querySelectorAll('iframe.hs-form-iframe');
+              hsFormFrames.forEach(function(frame) {
+                if (frame.contentWindow.document.querySelectorAll('form#hsForm_'+e.data.id).length > 0) {
+                  o.ClearbitForHubspot.addForm(frame.contentWindow.document.querySelectorAll('form#hsForm_'+e.data.id));
+                }
+              })
+            }
           }
         });
       }(window);
