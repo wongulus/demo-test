@@ -119,11 +119,11 @@
     <script>MktoForms2.whenReady(function(form){window.form = form})</script>
 
     <!-- Marketo Forms Enrichment -->
-    <script type="text/javascript">var pollForDefinition=function(scope,varname,callback){if(typeof scope[varname]!=="undefined"){return callback()}var interval=setInterval(function(){if(typeof scope[varname]!=="undefined"){clearInterval(interval);callback()}},250)};var script=document.createElement("script");script.src="https://marketo.clearbit.com/assets/v1/marketo/forms.js";script.async=true;script.setAttribute("data-clearbit-publishable-key", "pk_6bb1103d8825e32f7139e4988ce0833e");script.onerror=function(e){console.log("Clearbit Form JS unable to load");pollForDefinition(window,"MktoForms2",function(){MktoForms2.whenReady(function(form){form.setValues({clearbitFormStatus:"Clearbit Form JS unable to load"})})})};document.body.appendChild(script);</script>
-    
+    <!-- <script type="text/javascript">var pollForDefinition=function(scope,varname,callback){if(typeof scope[varname]!=="undefined"){return callback()}var interval=setInterval(function(){if(typeof scope[varname]!=="undefined"){clearInterval(interval);callback()}},250)};var script=document.createElement("script");script.src="https://marketo.clearbit.com/assets/v1/marketo/forms.js";script.async=true;script.setAttribute("data-clearbit-publishable-key", "pk_6bb1103d8825e32f7139e4988ce0833e");script.onerror=function(e){console.log("Clearbit Form JS unable to load");pollForDefinition(window,"MktoForms2",function(){MktoForms2.whenReady(function(form){form.setValues({clearbitFormStatus:"Clearbit Form JS unable to load"})})})};document.body.appendChild(script);</script> -->
+
     <!-- Marketo Forms dev env -->
     <!-- <script type="text/javascript">var pollForDefinition=function(scope,varname,callback){if(typeof scope[varname]!=="undefined"){return callback();} var interval=setInterval(function(){if(typeof scope[varname]!=="undefined"){clearInterval(interval);callback();}},250);};var script=document.createElement("script");script.src="https://marketo.dev.clearbit.io/assets/v1/marketo/forms.js";script.async=true;script.setAttribute("data-clearbit-publishable-key","pk_6bb1103d8825e32f7139e4988ce0833e");script.onerror=function(e){console.log("Clearbit Form JS unable to load");pollForDefinition(window,"MktoForms2",function(){MktoForms2.whenReady(function(form){form.setValues({clearbitFormStatus:"Clearbit Form JS unable to load"});});});};document.body.appendChild(script);</script> -->
-    
+
 
     <!-- pre-fill email from query param -->
     <script>
@@ -218,13 +218,13 @@
           'dimension13': 'companyTech'
         }
       }
-      
+
       // This line configures the tracking ID with the mapping
       gtag('config', 'UA-140690463-2', reveal_gtag_map);
-      
+
       let reveal_data_map = {};
       let nonCompany = "(Non-Company)";
-      
+
       if(reveal === null || reveal.company === null) {
         reveal_data_map = {
           'non_interaction': true,
@@ -245,7 +245,7 @@
       }
       else {
         let company = reveal.company;
-      
+
         reveal_data_map = {
           'non_interaction': true,
           'type':reveal.type,
@@ -263,10 +263,10 @@
           'companyTech':company.tech
         };
       }
-      
+
       gtag('event', 'Clearbit', reveal_data_map);
     </script> -->
-    <!--End Reveal to GA via gtag.js-->  
+    <!--End Reveal to GA via gtag.js-->
 
     <!-- Reveal Personalization -->
     <!-- <script async src="https://reveal.clearbit.com/v1/companies/reveal?variable=reveal&authorization=pk_5fdce9b9374f2f8a4f8c9f4a1546fa35"></script> -->
