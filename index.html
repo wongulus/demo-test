@@ -47,9 +47,37 @@
     <!-- <script>!function(w){var clearbit=w.clearbit=w.clearbit||[];if(!clearbit.initialize)if(clearbit.invoked)w.console&&console.error&&console.error("Clearbit snippet included twice.");else{clearbit.invoked=!0;clearbit.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];clearbit.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);clearbit.push(e);return clearbit}};for(var t=0;t<clearbit.methods.length;t++){var e=clearbit.methods[t];clearbit[e]=clearbit.factory(e)}clearbit.load=function(t){var e=document.createElement("script");e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"x.clearbitjs.com/v1/"+t+"/clearbit-beta.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};clearbit.SNIPPET_VERSION="3.1.0";    clearbit.load("pk_6bb1103d8825e32f7139e4988ce0833e");    clearbit.page();  }}(window);
     </script> -->
 
-    <!-- poll for definition -->
+    <!-- poll for definition
     <script>
       var pollForDefinition=function(scope,varname,callback){if(typeof scope[varname]!=="undefined"){return callback()}var interval=setInterval(function(){if(typeof scope[varname]!=="undefined"){clearInterval(interval);callback()}},250)};
+    </script> -->
+
+    <!-- testing marketo forms in the head, expecting this not to work -->
+    <script type="text/javascript">
+      var pollForDefinition = function (scope, varname, callback) {
+        if (typeof scope[varname] !== "undefined") {
+          return callback();
+        }
+        var interval = setInterval(function () {
+          if (typeof scope[varname] !== "undefined") {
+            clearInterval(interval);
+            callback();
+          }
+        }, 250);
+      };
+      var script = document.createElement("script");
+      script.src = "https://marketo.clearbit.com/assets/v1/marketo/forms.js";
+      script.async = true;
+      script.setAttribute("data-clearbit-publishable-key", "pk_6bb1103d8825e32f7139e4988ce0833e");
+      script.onerror = function (e) {
+        console.log("Clearbit Form JS unable to load");
+        pollForDefinition(window, "MktoForms2", function () {
+          MktoForms2.whenReady(function (form) {
+            form.setValues({ clearbitFormStatus: "Clearbit Form JS unable to load" });
+          });
+        });
+      };
+      document.body.appendChild(script);
     </script>
   </head>
 
