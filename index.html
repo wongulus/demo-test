@@ -53,7 +53,7 @@
     </script>
 
     <!-- Clearbit for Marketo Forms Enrichment -->
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
       var pollForDefinition = function (scope, varname, callback) {
         if (typeof scope[varname] !== "undefined") {
           return callback();
@@ -66,9 +66,9 @@
         }, 250);
       };
       var script = document.createElement("script");
-      script.src = "https://marketo.clearbit.com/assets/v1/marketo/forms.js";
+      script.src = "https://marketo.dev.clearbit.com/assets/v1/marketo/forms.js";
       script.async = true;
-      script.setAttribute("data-clearbit-publishable-key", "pk_6bb1103d8825e32f7139e4988ce0833e");
+      script.setAttribute("data-clearbit-publishable-key", "pk_b71607229af0b229c9e95bf639f870f4");
       script.onerror = function (e) {
         console.log("Clearbit Form JS unable to load");
         pollForDefinition(window, "MktoForms2", function () {
@@ -77,7 +77,7 @@
           });
         });
       };
-      document.head.appendChild(script); -->
+      document.querySelector('head').appendChild(script);
     </script>
   </head>
 
@@ -172,7 +172,7 @@
     </script>
 
     <!-- pre-fill email from query param -->
-    <script>
+    <!-- <script>
       pollForDefinition(window,"MktoForms2",function(form) {
         const urlParams = new URLSearchParams(window.location.search);
         const emailParam = urlParams.get('my_email');
@@ -190,7 +190,7 @@
           })
         })
       })
-    </script>
+    </script> -->
     <!-- <script type="text/javascript" src="https://clearbitjs.com/v1/x/forms.js"></script>
     <div class="clearbit-form" data-form-id="632929e6-4532-4d82-b75a-5637ba11adcf" data-theme="default" ></div> -->
 
